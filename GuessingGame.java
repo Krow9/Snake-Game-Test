@@ -10,38 +10,60 @@ public class GuessingGame {
             int ScreenUnitMAX = 10;
             int ScreenOrigin = ((ScreenUnitMAX / 2) + 1);
 
-        public void PrintCeilingFloor() {
-            int PrintProccess = ScreenUnitMAX;
-            while (!(PrintProccess == 0)) {
-            if (PrintProcces = ScreenOrigin) {
-                System.out.print("V");
-                } else {
-                    System.out.print("_");
-                    PrintProccess -= 1;
-                }
+        private enum  ScreenPrint {
+                Inizalizing,
+                CeilingFloor,
+                Walls,
+                Inizalized,
             }
+        private ScreenPrint state;
+
+        public void ScreenPrint(){
+            public void loop() {
+                switch (state) {
+                    case Inizalizing:
+                        int PrintProccess = ScreenUnitMAX;
+                        
+                        if (!(PrintProccess == 0)) {
+                        state = CeilingFloor; 
+                        }
+                        break;
+                    case CeilingFloor:
+                        while (!(PrintProccess == 0)) {
+                            if (PrintProcces = ScreenOrigin) {
+                            System.out.print("V");
+                                } else {
+                                System.out.print("_");
+                                PrintProccess -= 1;
+                                }
+                        int PrintProccess = ScreenUnitMAX;
+                        state = Walls; 
+                    } break;
+                    case Walls:
+                        while (!(PrintProccess == 0)) {
+                            if (PrintProcces = ScreenOrigin) {
+                            System.out.println("-");
+                                } else {
+                                System.out.print("|");
+                                PrintProccess -= 1;
+                                }
+                        int PrintProccess = ScreenUnitMAX;
+                        state = CeilingFloor; 
+        
         }
         
-        public void PrintWall() {
-            int PrintProccess = ScreenUnitMAX;
-            while (!(PrintProccess == 0)) {
-            if (PrintProcces = ScreenOrigin) {
-                System.out.println("-");
-                } else {
-                    System.out.print("_");
-                    PrintProccess -= 1;
-                }
-            }
+        public void inizalize() {
+            printCeilingFloor();
+            printWall();
+            System.out.println( );
+            Gstatus = "Inizalized";
+        
+            System.out.println(Gstatus);
+            System.out.println("Ready?");
+            Input = input.next();
+            Gstatus = "Running";
+            System.out.println(Gstatus);
         }
-        
-        System.out.println( );
-        Gstatus = "Inizalized";
-        
-        System.out.println(Gstatus);
-        System.out.println("Ready?");
-        Input = input.next();
-        Gstatus = "Running";
-        System.out.println(Gstatus);
     } /* <-- Placeholder For Screen Printing Test, Delete once moving on */
 } /* <-- Placeholder For Screen Printing Test Delete once moving on */
 
