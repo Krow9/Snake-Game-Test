@@ -10,6 +10,33 @@ public class GuessingGame {
             int ScreenUnitMAX = 4;
             int ScreenUnit = ((ScreenUnitMAX / 2) + 1);
         
+        int PrintProccess = ScreenUnit;
+        while (!(PrintProccess == 0)) {
+            System.out.print(1);
+            PrintProccess -= 1;
+        }
+        System.out.println( );
+        Gstatus = "Inizalized";
+        System.out.println(Gstatus);
+        System.out.println("Ready?");
+        Input = input.next();
+        Gstatus = "Running";
+        System.out.println(Gstatus);
+    } 
+}   
+
+import java.util.Scanner;
+
+public class GuessingGame {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String Gstatus = "Inizalizing";
+        System.out.println(Gstatus);
+            String Input = "A";
+            int ScreenUnitMIN = 1;
+            int ScreenUnitMAX = 4;
+            int ScreenUnit = ((ScreenUnitMAX / 2) + 1);
+        
         Int PrintProccess = ScreenUnit;
         while ( PrintProccess = 0 ) {
             System.out.println(1);
