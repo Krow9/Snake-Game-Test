@@ -6,15 +6,34 @@ public class GuessingGame {
         String Gstatus = "Inizalizing";
         System.out.println(Gstatus);
             String Input = "N/A";
-            int ScreenUnitMIN = 1;
-            int ScreenUnitMAX = 4;
-            int ScreenUnit = ((ScreenUnitMAX / 2) + 1);
-        
-        int PrintProccess = ScreenUnitMAX;
-        while (!(PrintProccess == 0)) {
-            System.out.print("_");
-            PrintProccess -= 1;
+            int ScreenUnitBorder = 3;
+            int ScreenUnitMAX = 10;
+            int ScreenOrigin = ((ScreenUnitMAX / 2) + 1);
+
+        public void PrintCeilingFloor() {
+            int PrintProccess = ScreenUnitMAX;
+            while (!(PrintProccess == 0)) {
+            if (PrintProcces = ScreenOrigin) {
+                System.out.print("V");
+                } else {
+                    System.out.print("_");
+                    PrintProccess -= 1;
+                }
+            }
         }
+        
+        public void PrintWall() {
+            int PrintProccess = ScreenUnitMAX;
+            while (!(PrintProccess == 0)) {
+            if (PrintProcces = ScreenOrigin) {
+                System.out.println("-");
+                } else {
+                    System.out.print("_");
+                    PrintProccess -= 1;
+                }
+            }
+        }
+        
         System.out.println( );
         Gstatus = "Inizalized";
         
