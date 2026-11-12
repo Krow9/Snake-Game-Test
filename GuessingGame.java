@@ -3,34 +3,34 @@ import java.util.Scanner;
 public class GuessingGame {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int secret = (int) (Math.random() * 100) + 1;
-        int guess = 0;
-        int count = 0;
+        String Gstatus = "Inizalizing";
 
-        // Your code goes here //
+        System.out.print(Gstatus);
+        System.out.print("Ready?");
+        input.nextline();
 
-        while( guess != secret ) {
-            System.out.print("Guess a Number from 1 to 100: ");
-            guess = input.nextInt();
-
-            count++;
-
-            if (guess > secret ) {
-                System.out.print("--------------------------- < ");
-                System.out.println("Too high");
-            } else if ( guess < secret ) {
-                System.out.print("--------------------------- > ");
-                System.out.println("Too low");
-            } else {
-                System.out.print("--------------------------- = ");
-                System.out.println("You got it!");
-                System.out.println("You got it in " + count + " guesses.");
-                System.out.print("--------------------------- ? ");
-                System.out.println("Play Again?");
             }
         }
-
-
-
     }
 }
+
+System.out.print("Guess a Number from 1 to 100: ");
+            guess = input.nextInt();
+while ( W = input.next.charAt(0) ) {
+            System.out.print("^");
+
+import java.util.Scanner;
+
+public class GuessingGame {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String Gstatus = "Inizalizing";
+        String Input = "N/A";
+
+        System.out.print(Gstatus);
+        System.out.print("Ready?");
+        Input = input.nextint();
+
+            
+        }
+    }
