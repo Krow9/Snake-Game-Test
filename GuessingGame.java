@@ -5,25 +5,26 @@ public class GuessingGame {
         Scanner input = new Scanner(System.in);
         String Gstatus = "Inizalizing";
         System.out.println(Gstatus);
-            String Input = "A";
+            String Input = "N/A";
             int ScreenUnitMIN = 1;
             int ScreenUnitMAX = 4;
             int ScreenUnit = ((ScreenUnitMAX / 2) + 1);
         
-        int PrintProccess = ScreenUnit;
+        int PrintProccess = ScreenUnitMAX;
         while (!(PrintProccess == 0)) {
-            System.out.print(1);
+            System.out.print("_");
             PrintProccess -= 1;
         }
         System.out.println( );
         Gstatus = "Inizalized";
+        
         System.out.println(Gstatus);
         System.out.println("Ready?");
         Input = input.next();
         Gstatus = "Running";
         System.out.println(Gstatus);
-    } 
-}   
+    } /* <-- Placeholder For Screen Printing Test, Delete once moving on */
+} /* <-- Placeholder For Screen Printing Test Delete once moving on */
 
 import java.util.Scanner;
 
