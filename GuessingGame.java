@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class GuessingGame {
         
         
-    public void main(String[] args) {
+    public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String Gstatus = "Inizalizing";
         System.out.println(Gstatus);
@@ -11,23 +11,24 @@ public class GuessingGame {
             int ScreenUnitBorder = 3;
             int ScreenUnitMAX = 10;
             int ScreenOrigin = ((ScreenUnitMAX / 2) + 1);
+            int PrintProccess = 0;
              
-            enum  ScreenPrint {
+            enum  state {
+                NA,
                 Inizalizing,
                 CeilingFloor,
                 Walls,
                 Inizalized,
                 }
         
-            ScreenPrint state;
-            state = state.Inizalizing;
+            state Screenprint = state.Inizalizing;
             
-                switch (state) {
+                switch (Screenprint) {
                     case Inizalizing:
-                        int PrintProccess = ScreenUnitMAX;
+                        PrintProccess = ScreenUnitMAX;
                         
                         if (!(PrintProccess == 0)) {
-                        state = state.CeilingFloor; 
+                        Screenprint = state.CeilingFloor; 
                         }
                         break;
                     case CeilingFloor:
@@ -39,32 +40,32 @@ public class GuessingGame {
                                     System.out.print("_");
                                     PrintProccess -= 1;
                                     }
-                                int PrintProccess = ScreenUnitMAX;
-                                state = state.Walls; 
+                                PrintProccess = ScreenUnitMAX;
+                                Screenprint = state.Walls; 
                             }
                         } else {
-                            int PrintProccess = ScreenUnitMAX; 
+                            PrintProccess = ScreenUnitMAX; 
                             while (!(PrintProccess == 0)) {
-                            if (PrintProcces = ScreenOrigin) {
+                            if (PrintProccess == ScreenOrigin) {
                             System.out.print("|");
                                 } else {
                                 System.out.print("_");
                                 PrintProccess -= 1;
                                 }
-                            int PrintProccess = ScreenUnitMAX;
-                            state = state.Inizalized; 
+                            PrintProccess = ScreenUnitMAX;
+                            Screenprint = state.Inizalized; 
                             }
                         
                     } break;
                     case Walls:
                         while (!(PrintProccess == 0)) {
-                            if (PrintProcces = ScreenOrigin) {
+                            if (PrintProccess == ScreenOrigin) {
                             System.out.println("-");
                                 } else {
                                 System.out.print("|");
                                 PrintProccess -= 1;
                                 }
-                        state = CeilingFloor;
+                        Screenprint = state.CeilingFloor;
                     } break;
                     case Inizalized:
                         Gstatus = "Inizalized";
@@ -78,7 +79,6 @@ public class GuessingGame {
                 }
             }
         }
-
 
 import java.util.Scanner;
 
