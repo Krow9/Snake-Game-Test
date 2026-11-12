@@ -4,33 +4,15 @@ public class GuessingGame {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         String Gstatus = "Inizalizing";
+        String Input = "A";
+        System.out.println(Gstatus);
 
-        System.out.print(Gstatus);
-        System.out.print("Ready?");
-        input.nextline();
-
-            }
-        }
+        System.out.println("Ready?");
+        Input = input.next();
+            String Gstatus = "Running";
+            System.out.println(Gstatus);
+        
+        while (Input.equals("yes")) {
+            System.out.println("");
     }
 }
-
-System.out.print("Guess a Number from 1 to 100: ");
-            guess = input.nextInt();
-while ( W = input.next.charAt(0) ) {
-            System.out.print("^");
-
-import java.util.Scanner;
-
-public class GuessingGame {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        String Gstatus = "Inizalizing";
-        String Input = "N/A";
-
-        System.out.print(Gstatus);
-        System.out.print("Ready?");
-        Input = input.nextint();
-
-            
-        }
-    }
