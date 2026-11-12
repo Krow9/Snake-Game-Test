@@ -103,8 +103,10 @@ public class GuessingGame {
                         System.out.print(">");
                         Input = input.next();
                         Gstatus = "Running...";
-                        System.out.print("\033[1A" + "[    ");
-                        System.out.println("\033[2A\r" + Gstatus);
+                        System.out.print("\r" + "        ");
+                        System.out.println("\033[3A\r" + Gstatus);
+                        System.out.print("\033[1B\r    " + "\r[");
+        
                     break;
                     
                 }
@@ -128,16 +130,19 @@ public class GuessingGame {
                                 Movement = MovementState.RIGHT;
                                   } else {
                                 System.out.println("Normal");
+                                System.out.print("\033[2A\r    " + "\r[");
                                 Movement = MovementState.NORMAL;
                                 }
                                 break;
                                 case LEFT:
                                 System.out.println("Left");
+                                System.out.print("\033[2A\r    " + "\r[");
                                 Movement = MovementState.NORMAL;
                                 break;
                                 case RIGHT:
                                 System.out.println("Right");
                                 Movement = MovementState.NORMAL;
+                                System.out.print("\033[2A\r    " + "\r[");
                                 break;
                     }
                      
