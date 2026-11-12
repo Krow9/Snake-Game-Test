@@ -29,15 +29,30 @@ public class GuessingGame {
                         }
                         break;
                     case CeilingFloor:
-                        while (!(PrintProccess == 0)) {
+                         if (!(PrintProccess == 0)) {
+                            while (!(PrintProccess == 0)) {
+                                if (PrintProcces = ScreenOrigin) {
+                                System.out.print("|");
+                                    } else {
+                                    System.out.print("_");
+                                    PrintProccess -= 1;
+                                    }
+                                int PrintProccess = ScreenUnitMAX;
+                                state = Walls; 
+                            }
+                        } else {
+                            int PrintProccess = ScreenUnitMAX; 
+                            while (!(PrintProccess == 0)) {
                             if (PrintProcces = ScreenOrigin) {
-                            System.out.print("V");
+                            System.out.print("|");
                                 } else {
                                 System.out.print("_");
                                 PrintProccess -= 1;
                                 }
-                        int PrintProccess = ScreenUnitMAX;
-                        state = Walls; 
+                            int PrintProccess = ScreenUnitMAX;
+                            state = Inizalized; 
+                            }
+                        
                     } break;
                     case Walls:
                         while (!(PrintProccess == 0)) {
@@ -47,12 +62,21 @@ public class GuessingGame {
                                 System.out.print("|");
                                 PrintProccess -= 1;
                                 }
-                        int PrintProccess = ScreenUnitMAX;
-                        state = CeilingFloor; 
-        
+                        state = CeilingFloor;
+                    } break;
+                    case Inizalized:
+                        Gstatus = "Inizalized";
+                        System.out.println( );
+                        System.out.println(Gstatus);
+                        System.out.println("Ready?");
+                        Input = input.next();
+                        Gstatus = "Running";
+                        System.out.println(Gstatus);
+                    break;
         }
-        
-        public void inizalize() {
+} /* <-- Placeholder For Screen Printing Test, Delete once moving on */
+
+            public void inizalize() {
             printCeilingFloor();
             printWall();
             System.out.println( );
@@ -63,10 +87,7 @@ public class GuessingGame {
             Input = input.next();
             Gstatus = "Running";
             System.out.println(Gstatus);
-        }
-    } /* <-- Placeholder For Screen Printing Test, Delete once moving on */
-} /* <-- Placeholder For Screen Printing Test Delete once moving on */
-
+    
 import java.util.Scanner;
 
 public class GuessingGame {
