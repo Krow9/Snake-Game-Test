@@ -23,26 +23,30 @@ public class GuessingGame {
         
             state Screenprint = state.Inizalizing;
             
+            while ((Gstatus == "Inizalizing")) {
                 switch (Screenprint) {
                     case Inizalizing:
+                        System.out.println(Screenprint);
                         PrintProccess = ScreenUnitMAX;
-                        
                         if (!(PrintProccess == 0)) {
                         Screenprint = state.CeilingFloor; 
                         }
                         break;
+                        
                     case CeilingFloor:
+                        System.out.println(Screenprint);
                          if (!(PrintProccess == 0)) {
                             while (!(PrintProccess == 0)) {
                                 if (PrintProccess == ScreenOrigin) {
                                 System.out.print("|");
+                                PrintProccess -= 1;
                                     } else {
                                     System.out.print("_");
                                     PrintProccess -= 1;
                                     }
-                                PrintProccess = ScreenUnitMAX;
-                                Screenprint = state.Walls; 
                             }
+                            PrintProccess = ScreenUnitMAX;
+                            Screenprint = state.Walls;
                         } else {
                             PrintProccess = ScreenUnitMAX; 
                             while (!(PrintProccess == 0)) {
@@ -52,15 +56,16 @@ public class GuessingGame {
                                 System.out.print("_");
                                 PrintProccess -= 1;
                                 }
-                            PrintProccess = ScreenUnitMAX;
                             Screenprint = state.Inizalized; 
                             }
                         
                     } break;
                     case Walls:
+                    System.out.println(Screenprint);
                         while (!(PrintProccess == 0)) {
                             if (PrintProccess == ScreenOrigin) {
                             System.out.println("-");
+                             PrintProccess -= 1;
                                 } else {
                                 System.out.print("|");
                                 PrintProccess -= 1;
@@ -68,6 +73,7 @@ public class GuessingGame {
                         Screenprint = state.CeilingFloor;
                     } break;
                     case Inizalized:
+                        System.out.println(Screenprint);
                         Gstatus = "Inizalized";
                         System.out.println( );
                         System.out.println(Gstatus);
@@ -77,8 +83,10 @@ public class GuessingGame {
                         System.out.println(Gstatus);
                     break;
                 }
+                }
             }
         }
+
 
 import java.util.Scanner;
 
