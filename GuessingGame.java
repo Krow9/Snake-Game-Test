@@ -9,6 +9,116 @@ public class GuessingGame {
         System.out.println(Gstatus);
             String Input = "N/A";
             int ScreenUnitBorder = 3;
+            int ScreenUnitMAX = 11;
+            int Screenairspace = 11;
+
+            int ScreenOrigin = ((ScreenUnitMAX / 2+1));
+            int PrintProccess = 0;
+             
+            enum  state {
+                NA,
+                Inizalizing,
+                CeilingFloor,
+                Walls,
+                Inizalized,
+                }
+        
+            state Screenprint = state.Inizalizing;
+            
+            while ((Gstatus == "Inizalizing")) {
+                switch (Screenprint) {
+                    case Inizalizing:
+                        System.out.println(Screenprint);
+                        PrintProccess = ScreenUnitMAX;
+                        if (!(PrintProccess == 0)) {
+                        Screenprint = state.CeilingFloor; 
+                        }
+                        break;
+                        
+                    case CeilingFloor:
+                        System.out.println(Screenprint);
+                         if (!(PrintProccess == 0)) {
+                            while (!(PrintProccess == 0 )) {
+                                if (PrintProccess == ScreenOrigin || PrintProccess == ScreenUnitMAX || PrintProccess == 1 ) {
+                                System.out.print("|");
+                                PrintProccess -= 1;
+                                    } else {
+                                    System.out.print("_");
+                                    PrintProccess -= 1;
+                                    }
+                            }
+                            PrintProccess = ScreenUnitMAX;
+                            Screenprint = state.Walls;
+                        } else {
+                            PrintProccess = ScreenUnitMAX;
+                            while (!(PrintProccess == 0)) {
+                            if (PrintProccess == ScreenOrigin) {
+                            System.out.print("|");
+                            PrintProccess -= 1;
+                                } else {
+                                System.out.print("_");
+                                PrintProccess -= 1;
+                                }
+                            Screenprint = state.Inizalized; 
+                            }
+                        
+                    } break;
+                    case Walls:
+                    System.out.println(Screenprint);
+                        Screenairspace = ScreenUnitMAX; 
+
+                            while (!(PrintProccess == 0)) {
+                                Screenairspace = ScreenUnitMAX; 
+                                    if (PrintProccess == ScreenOrigin) {
+                                    System.out.print("-");
+                                        while (!(Screenairspace == 0)) {
+                                            System.out.print(" ");
+                                            Screenairspace -= 1;
+                                            }
+                                        System.out.println("-");
+                                    PrintProccess -= 1;
+                                    } else {
+                                    System.out.print("|");
+                                        while (!(Screenairspace == 0)) {
+                                            System.out.print(" ");
+                                            Screenairspace -= 1;
+                                            }
+                                    System.out.println("|");
+                                    PrintProccess -= 1;
+                                    }
+                            } 
+                        
+                        
+                    Screenprint = state.CeilingFloor; 
+                    break;
+                    
+                    case Inizalized:
+                        System.out.println(Screenprint);
+                        Gstatus = "Inizalized";
+                        System.out.println( );
+                        System.out.println(Gstatus);
+                        System.out.println("Ready?");
+                        Input = input.next();
+                        Gstatus = "Running";
+                        System.out.println(Gstatus);
+                    break;
+                }
+                }
+            }
+        }
+
+
+import java.util.Scanner;
+
+public class GuessingGame {
+        
+        
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String Gstatus = "Inizalizing";
+        System.out.println(Gstatus);
+            String Input = "N/A";
+            int ScreenUnitBorder = 3;
             int ScreenUnitMAX = 10;
             int ScreenOrigin = ((ScreenUnitMAX / 2) + 1);
             int PrintProccess = 0;
