@@ -5,11 +5,13 @@ public class GuessingGame {
         
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
+        System.out.print("[Snake Game] - < ");
         String Gstatus = "Inizalizing";
-        System.out.print(Gstatus);
+        System.out.println(Gstatus);
             String Input = "N/A";
-            int ScreenUnitBorder = 3;
-            int ScreenUnitMAX = 21;
+                System.out.print("Screensize? ");
+                    System.out.print("[]");
+                        int ScreenUnitMAX = input.nextInt() * 2;
             int Screenairspace = 0;
 
             int ScreenOrigin = ((ScreenUnitMAX / 2+1));
@@ -53,7 +55,7 @@ public class GuessingGame {
                         } else {
                             PrintProccess = ScreenUnitMAX;
                             while (!(PrintProccess == 0)) {
-                            if (PrintProccess == ScreenOrigin) {
+                            if (PrintProccess == ScreenOrigin || PrintProccess == ScreenUnitMAX || PrintProccess == 1) {
                             System.out.print("|");
                             PrintProccess -= 1;
                                 } else {
@@ -85,7 +87,7 @@ public class GuessingGame {
                                             System.out.print(" ");
                                             Screenairspace -= 1;
                                             }
-                                    System.out.println("|");
+                                    System.out.println("| " + PrintProccess );
                                     PrintProccess -= 1;
                                     }
                             } 
