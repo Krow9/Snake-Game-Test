@@ -1,3 +1,146 @@
+public class GuessingGame {
+        
+    public static void main(String[] args) {
+
+    Scanner input = new Scanner(System.in);
+    String Title = "[Snake Game] - < ";
+    String Gstatus = "Inizalizing";
+    String Return = ("\033[H" + Title) ;
+    String Input = null;
+    int ScreenUnitMAX = 0;
+    int ScreenOrigin = 0;
+    int Screenairspace = 0;
+    int PrintProccess = 0;
+    int Level = 0;
+    
+    System.out.println(Title + Gstatus);
+    System.out.print("Screensize? - < [");
+        ScreenUnitMAX = (input.nextInt() * 2);
+        ScreenOrigin = ((ScreenUnitMAX / 2+1) );
+    System.out.print("\033[A\r");
+    System.out.print("[" + ScreenUnitMAX / 2 + "]-");
+    System.out.println("[" + ScreenUnitMAX + "] Lvl [----]");
+
+             
+        enum  state {
+            NA,
+            Start,
+            CeilingFloor,
+            Walls,
+            Finish,
+        }
+                
+    state Screenprint = state.Start;
+        PrintProccess = ScreenOrigin;
+        PrintProccess = ScreenUnitMAX+1;
+        
+        while ((Gstatus == "Inizalizing")) {
+            String Wall = "|";
+            String Floor = "_";
+             if (PrintProccess == ScreenOrigin){
+                Wall = "-";
+                Floor = "|";
+             } 
+             if (PrintProccess == 1 || PrintProccess == ScreenUnitMAX+1){
+                Floor = ".";
+             } 
+             
+            switch (Screenprint) {
+                case Start:
+                    System.out.print(Return + Screenprint + "\r\033[2B");
+                    Screenairspace = ScreenUnitMAX; 
+                    Screenprint = state.CeilingFloor; 
+                break;
+                case CeilingFloor:
+                    if (!(PrintProccess == 0 )) {
+                        System.out.print(Floor);
+                        PrintProccess -= 1;
+                    } else {
+                        PrintProccess = ScreenUnitMAX/2;
+                            if (Screenairspace == 0) {
+                                Screenprint = state.Finish; 
+                            } else {
+                                Screenprint = state.Walls;
+                            }
+                    }
+                break;
+                case Walls:
+                    System.out.println( );
+                   if (!(PrintProccess == 0 )) {
+                        System.out.print(Wall);
+                            while (!(Screenairspace == 1)) {
+                            System.out.print(" ");
+                            Screenairspace -= 1;
+                            }
+                        System.out.print(Wall);
+                        Screenairspace = ScreenUnitMAX;
+                        PrintProccess -= 1; 
+                    } else {
+                        Screenairspace = 0;
+                        PrintProccess = ScreenUnitMAX+1;
+                        Screenprint = state.CeilingFloor; 
+                    }
+                break;
+                case Finish:
+                        Gstatus = "Inizalized";
+                        System.out.println((Return) + Gstatus + "\r\033[" + (ScreenUnitMAX/2+3) + "B");
+                        System.out.println("Ready?");
+                        System.out.print(">");
+                        Input = input.next();
+                        Gstatus = "Running...";
+                        System.out.println("\033[2A\r        " + (Return) + Gstatus + "\r\033[" + (ScreenUnitMAX/2+3) + "B");
+                        System.out.print("\033[1B\r    " + "\r[");
+                break;
+            }
+        }
+        
+        int x = ScreenOrigin;
+        System.out.println((Return) + Gstatus + "\r\033[" + (x - 1) + "C" + "\033[5B" + "■" );
+        
+                
+            enum MovementState {
+                NORMAL,
+                LEFT,
+                RIGHT,
+            }
+        
+            String Clear = "\r +                        ";
+            MovementState Movement = MovementState.NORMAL;
+                        
+        while (Gstatus == "Running..."){
+            switch (Movement) {
+                case NORMAL:
+                    
+                    System.out.print((Return) + Gstatus + "\r\033[" + (ScreenUnitMAX/2+5) + "B[" );
+
+                    Input = input.next();
+                    System.out.println((Return) + Gstatus + "\r\033[" + (x) + "C" + "\033[5B" + " " );
+
+                    if (Input.equals("a")) {
+                        Movement = MovementState.LEFT;
+                    } else if (Input.equals("d")) {
+                        Movement = MovementState.RIGHT;
+                        } else {
+                        System.out.println("Normal");
+                        System.out.print("\033[2A\r[");
+                        Movement = MovementState.NORMAL;
+                    }
+                break;
+                case LEFT:
+                    System.out.println((Return) + Gstatus + "\r\033[" + (x - 1) + "C" + "\033[5B" + "■" );
+                    x--;
+                    Movement = MovementState.NORMAL;
+                break;
+                case RIGHT:
+                    System.out.println((Return) + Gstatus + "\r\033[" + (x + 1) + "C" + "\033[5B" + "■" );
+                    x++;
+                    Movement = MovementState.NORMAL;
+                break;
+            }
+        }
+    }
+}
+
 import java.util.Scanner;
 
 public class GuessingGame {
